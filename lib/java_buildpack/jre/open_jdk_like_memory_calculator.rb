@@ -53,7 +53,7 @@ module JavaBuildpack
       def memory_calculation_command
         "CALCULATED_MEMORY=$(#{memory_calculation_string(@droplet.root)}) && " \
         'echo JVM Memory Configuration: $CALCULATED_MEMORY && ' \
-        'NEW_RELIC_UTILIZATION_BILLING_HOSTNAME=$CF_INSTANCE_IP && ' \
+        'export NEW_RELIC_UTILIZATION_BILLING_HOSTNAME=$CF_INSTANCE_IP && ' \
         'JAVA_OPTS="$JAVA_OPTS $CALCULATED_MEMORY"'
       end
 
